@@ -36,27 +36,23 @@ const defaultAffairs: AffairType[] = [ // need to fix any
 
 // pure helper functions
 export const filterAffairs = (affairs: AffairType[], filter: FilterType): AffairType[] => { // need to fix any
-    let a = [...affairs].filter(el => filter === 'all' ? el : el.priority === filter )
-    console.log(a)
-    return a;
+    return affairs.filter(el => filter === 'all' ? el : el.priority === filter );
 }
 
 export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] => { // need to fix any
-    return [...affairs].filter(el => el._id !=_id)
+    return affairs.filter(el => el._id !=_id)
 }
-
 function HW2() {
     const [affairs, setAffairs] = useState<AffairType[]>(defaultAffairs) // need to fix any
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter) //массив отфильтр задач
-    const deleteAffairCallback = (_id: number) => { // need to fix any
+
+    const deleteAffairCallback = (_id: number): void => { // need to fix any
         // need to fix
-        setAffairs([...filteredAffairs].filter((el:AffairType)=>el._id !=_id))
-
-
+        // setAffairs(filteredAffairs.filter((el:AffairType)=>el._id !=_id))
+        setAffairs(deleteAffair(affairs,_id))
     }
-
     return (
         <div id={'hw2'}>
             <div className={s2.hwTitle}>Homework #2</div>
