@@ -26,12 +26,11 @@ function Affair(props: AffairPropsType) {
         >
             <div id={'hw2-name-' + props.affair._id} className={nameClass}>
                 {/*создаёт студент*/}
-
-                {props.affair.name} {/*назв задачи*/}
+                {props.affair.name}
                 {/**/}
             </div>
             <div id={'hw2-priority-' + props.affair._id} hidden>
-                {props.affair.priority} {/*тип значимости*/}
+                {props.affair.priority}
             </div>
 
             <button id={'hw2-button-delete-' + props.affair._id} className={buttonClass} onClick={deleteCallback}>

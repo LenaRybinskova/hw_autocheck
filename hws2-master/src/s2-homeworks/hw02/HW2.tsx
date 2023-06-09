@@ -17,10 +17,10 @@ import s2 from '../../s1-main/App.module.css'
 * */
 
 // types
-export type AffairPriorityType = 'high' | 'middle' | 'low' // need to fix any OK
+export type AffairPriorityType = 'high' | 'middle' | 'low' // need to fix any
 export type AffairType = {
-    _id: number // need to fix any OK
-    name: string // need to fix any OK
+    _id: number // need to fix any
+    name: string // need to fix any
     priority: AffairPriorityType
 }
 export type FilterType = 'all' | AffairPriorityType
