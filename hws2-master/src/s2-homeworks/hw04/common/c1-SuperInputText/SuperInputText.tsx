@@ -21,20 +21,9 @@ type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
     spanClassName?: string
 }
 
-const SuperInputText: React.FC<SuperInputTextPropsType> = (
-    {
-        onChange,
-        onChangeText,
-        onKeyPress,
-        onEnter,
-        error,
-        className,
-        spanClassName,
-        id,
+const SuperInputText: React.FC<SuperInputTextPropsType> = ({onChange, onChangeText, onKeyPress, onEnter, error, className, spanClassName, id,
+        ...restProps}) => {
 
-        ...restProps // все остальные пропсы попадут в объект restProps
-    }
-) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e) // если есть пропс onChange, то передать ему е (поскольку onChange не обязателен)
 
@@ -48,8 +37,8 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
         onEnter() // то вызвать его
     }
 
-    const finalSpanClassName = s.error
-        + (spanClassName ? ' ' + spanClassName : '')
+    const finalSpanClassName = s.error + (spanClassName ? ' ' + spanClassName : '')
+
     const finalInputClassName = s.input
         + (error ? ' ' + s.errorInput : ' ' + s.superInput)
         + (className ? ' ' + className : '') // задача на смешивание классов
